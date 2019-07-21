@@ -3,6 +3,7 @@ package com.rathana.recyclerviewdemo.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,6 +93,12 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         this.contacts.add(0,contact);
         notifyItemInserted(0);
 
+    }
+
+    private static final String TAG = "ContactAdapter";
+    public void addItems(List<Contact> contacts) {
+        this.contacts.addAll(contacts);
+        notifyDataSetChanged();
     }
 
     //hold all views that exist in the item layout
